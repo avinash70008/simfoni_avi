@@ -125,7 +125,7 @@ const Navbar = () => {
             </div>
             <div className="m-1 hidden md:block">
               <p className="font-normal	text-base leading-5 text-right text-[#0D062D]">
-                Sara
+                Avinash
               </p>
             </div>
             <button
