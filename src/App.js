@@ -1,19 +1,15 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Navbar from "./Component/Navbar";
-import Home from "./Component/Home";
-import Footer from "./Component/Footer";
+import "./App.css";
+import Navbar from "./Components/Common/Navbar";
+import AllRoutes from "./Pages/AllRoutes";
 
-const App = () => {
+import HomePage from "./Pages/HomePage";
+function App() {
   return (
-    <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-      <Footer />
+    <div className="App">
+     <Navbar/>
+     <AllRoutes/>
     </div>
   );
-};
+}
 
 export default App;
