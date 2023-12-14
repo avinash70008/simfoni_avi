@@ -1,9 +1,7 @@
+// HomePage.js
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchBestSelling,
-  fetchBestItems,
-} from "../redux/action"; 
+
 import LoadingSpinner from "../Components/Common/LoadingSpinner";
 import HomeSlides from "../Components/home/HomeSlides";
 import TrendingSearches from "../Components/home/TrendingSearches";
@@ -13,13 +11,14 @@ import AllItems from "../Components/home/AllItems";
 import TopSupplier from "../Components/home/TopSuppliers";
 import ProductSearch from "../Components/Common/SearchBar";
 import { Box, Heading, Select } from "@chakra-ui/react";
+import { fetchBestItems, fetchBestSelling } from "../redux/action";
 
 function HomePage() {
   const dispatch = useDispatch();
   const bestSelling = useSelector((state) => state.bestSelling);
   const bestItems = useSelector((state) => state.bestItems);
   const loading = useSelector((state) => state.loading);
-
+console.log(bestSelling)
   useEffect(() => {
     dispatch(fetchBestSelling());
     dispatch(fetchBestItems());

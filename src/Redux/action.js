@@ -1,9 +1,7 @@
+// actions.js
 import axios from "axios";
-import {
-  SET_BEST_SELLING,
-  SET_BEST_ITEMS,
-  SET_LOADING,
-} from "./actionType";
+import { SET_BEST_ITEMS, SET_BEST_SELLING, SET_LOADING } from "./actionType";
+
 
 export const setBestSelling = (data) => ({
   type: SET_BEST_SELLING,
