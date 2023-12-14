@@ -1,4 +1,3 @@
-// actions.js
 import axios from "axios";
 import {
   SET_BEST_SELLING,
