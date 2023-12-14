@@ -126,12 +126,12 @@ This repository contains the source code for a single-page e-commerce applicatio
 ## Bonus Points
 
 this application is hosted on vercel(cloud platform).
-**Deployment Link:** <a href="https://simfoni-one.vercel.app/" >App Link</a>
+
 
 ## How to Run the Application
 
 1. Clone this repository.
-  https://github.com/Rinkesh375/simfoni.git
+https://github.com/avinash70008/simfoni_avi.git
 
   
 2. Install dependencies: `npm install`.
