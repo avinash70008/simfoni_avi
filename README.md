@@ -60,7 +60,7 @@ This repository contains the source code for a single-page e-commerce applicatio
   
   <tbody>
     <tr>
-      <td><img src="https://imgur.com/3y902ck.jpg" alt="Large Screen" /></td>
+     
       <td><img src="https://i.imgur.com/LB91C3o.jpg" alt="Small Screen" /></td>
   </tr>
    </tbody>
