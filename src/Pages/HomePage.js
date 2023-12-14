@@ -19,6 +19,7 @@ function HomePage() {
   const bestItems = useSelector((state) => state.bestItems);
   const loading = useSelector((state) => state.loading);
 
+
   useEffect(() => {
     dispatch(fetchBestSelling());
     dispatch(fetchBestItems());
