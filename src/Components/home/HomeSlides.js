@@ -32,21 +32,21 @@ export default function HomeSlides() {
       >
         <SwiperSlide>
           <Image
-            src="https://thumbs.dreamstime.com/z/hard-work-concept-tired-man-holding-many-boxes-hands-over-brick-wall-hard-work-concept-tired-man-holding-many-boxes-hands-212290434.jpg"
+            src="https://m.media-amazon.com/images/G/31/img23/Fashion/WRS/Dec23/teaseringress/v1/PC_Ingress_Unrec._SX3000_QL85_FMpng_.png"
             alt="banner2"
             style={imageStyle}
           />
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            src="https://th.bing.com/th/id/R.76fc452da5c43dfd56d5ecb16d2bfaee?rik=O3qywCkjVryi5Q&riu=http%3a%2f%2fcitywestshoppingcentre.com%2fapp%2fuploads%2f2017%2f04%2fWoman-Shopping-Banner.jpg&ehk=f51KA0DgiwyUWBfb1HSSlawurrqZaQVx%2fMpZlmiBwy8%3d&risl=&pid=ImgRaw&r=0"
+            src="https://m.media-amazon.com/images/G/31/img21/MA2023/Oct/winter/store/main-scroll-pc._CB574359281_.gif"
             alt="banner3"
             style={imageStyle}
           />
         </SwiperSlide>
         <SwiperSlide>
           <Image
-            src="https://th.bing.com/th/id/R.0ab6e848a8395fe4e95572437a644b0a?rik=AJSrU%2fNrEmp1Tw&riu=http%3a%2f%2fwww.istmagazine.com%2fwp-content%2fuploads%2f2017%2f07%2froadnotes-01-082017.jpg&ehk=XOQkxoF%2fZla97zYzRWsTGP9xZXDKf1ZYnTILxdKActc%3d&risl=&pid=ImgRaw&r=0"
+            src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/G/31/img2020/fashion/WA_2020/Ethincweeksep/pc-header._SX3000_QL85_.jpg"
             alt="banner3"
             style={imageStyle}
           />

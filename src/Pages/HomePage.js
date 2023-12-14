@@ -18,7 +18,7 @@ function HomePage() {
   const bestSelling = useSelector((state) => state.bestSelling);
   const bestItems = useSelector((state) => state.bestItems);
   const loading = useSelector((state) => state.loading);
-console.log(bestSelling)
+
   useEffect(() => {
     dispatch(fetchBestSelling());
     dispatch(fetchBestItems());
@@ -85,7 +85,7 @@ console.log(bestSelling)
         {bestItems.length > 0 && <BestSellingItems data={bestItems} />}
       </Box>
 
-      {/* All Items */}
+   
       <Box
         padding="10px 50px 10px 50px"
         margin="20px 10px 0px 10px"
@@ -95,11 +95,9 @@ console.log(bestSelling)
           ALL ITEMS
         </Heading>
 
-        {/* Check if bestItems is not empty before rendering */}
         {bestItems.length > 0 && <AllItems data={bestItems} />}
       </Box>
 
-      {/* Top Supplier */}
       <Box
         padding="10px 50px 10px 50px"
         margin="20px 10px 0px 10px"
@@ -109,7 +107,6 @@ console.log(bestSelling)
           TOP SUPPLIER
         </Heading>
 
-        {/* Check if bestSelling is not empty before rendering */}
         {bestSelling.length > 0 && <TopSupplier categories={bestSelling} />}
       </Box>
 
