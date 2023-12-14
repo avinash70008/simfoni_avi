@@ -1,32 +1,72 @@
+// actions.js
 import axios from "axios";
 import {
-  GET_PRODUCT_ERROR,
-  GET_PRODUCT_LOADING,
-  GET_PRODUCT_SUCCESS,
-} from "./action.type";
+  SET_BEST_SELLING,
+  SET_BEST_ITEMS,
+  SET_LOADING,
+} from "./actionType";
 
-export const GetPRODUCTApi = () => (dispatch) => {
-  const options = {
-    method: "GET",
-    url: "https://wayfair.p.rapidapi.com/products/search",
-    params: {
-      keyword: "light shaded room",
-      sortby: "0",
-      curpage: 1,
-      itemsperpage: "20",
-    },
-    headers: {
-      "X-RapidAPI-Key": process.env.REACT_APP_RapidAPIKey,
-      "X-RapidAPI-Host": process.env.REACT_APP_RapidAPIHost,
-    },
+export const setBestSelling = (data) => ({
+  type: SET_BEST_SELLING,
+  payload: data,
+});
+
+export const setBestItems = (data) => ({
+  type: SET_BEST_ITEMS,
+  payload: data,
+});
+
+export const setLoading = (isLoading) => ({
+  type: SET_LOADING,
+  payload: isLoading,
+});
+
+export const fetchBestSelling = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoading(true));
+      const response = await axios.get(
+        "https://wayfair.p.rapidapi.com/categories/list?caid=214970",
+        {
+          headers: {
+            "X-RapidAPI-Key": "d9ad70c688msh5271c1a897e7890p1adbedjsn73981b63a0e5",
+            "X-RapidAPI-Host": "wayfair.p.rapidapi.com",
+          },
+        }
+      );
+
+      const data = response.data.response.categoryAppData.departmentCategories;
+
+      dispatch(setBestSelling(data));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
-  dispatch({ type: GET_PRODUCT_LOADING });
-  axios
-    .request(options)
-    .then((r) => {
-      dispatch({ type: GET_PRODUCT_SUCCESS, payload: r.data?.response?.product_collection });
-    })
-    .catch(() => {
-      dispatch({ type: GET_PRODUCT_ERROR });
-    });
+};
+
+export const fetchBestItems = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(setLoading(true));
+      const response = await axios.get(
+        "https://wayfair.p.rapidapi.com/products/list?categoryId=45974&itemsPerPage=48&page=1",
+        {
+          headers: {
+            "X-RapidAPI-Key": "d9ad70c688msh5271c1a897e7890p1adbedjsn73981b63a0e5",
+            "X-RapidAPI-Host": "wayfair.p.rapidapi.com",
+          },
+        }
+      );
+
+      const data = response.data.response.data.category.browse.products;
+
+      dispatch(setBestItems(data));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch(setLoading(false));
+    }
+  };
 };

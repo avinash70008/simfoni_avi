@@ -1,44 +1,38 @@
-import {
-  GET_PRODUCT_ERROR,
-  GET_PRODUCT_LOADING,
-  GET_PRODUCT_SUCCESS,
-} from "./action.type";
+import { combineReducers } from "redux";
+import { SET_BEST_ITEMS, SET_BEST_SELLING, SET_LOADING } from "./actionType";
 
-const initData = {
-  loading: false,
-  error: false,
-  data: [],
-};
 
-export const ProductReducer = (state = initData, { type, payload }) => {
-  switch (type) {
-    case GET_PRODUCT_LOADING: {
-      return {
-        ...state,
-        loading: true,
-        error: false,
-      };
-    }
-
-    case GET_PRODUCT_SUCCESS: {
-      return {
-        ...state,
-        loading: false,
-        error: false,
-        data: payload,
-      };
-    }
-
-    case GET_PRODUCT_ERROR: {
-      return {
-        ...state,
-        loading: false,
-        error: true,
-      };
-    }
-
-    default: {
+const bestSellingReducer = (state = [], action) => {
+  switch (action.type) {
+    case SET_BEST_SELLING:
+      return action.payload;
+    default:
       return state;
-    }
   }
 };
+
+const bestItemsReducer = (state = [], action) => {
+  switch (action.type) {
+    case SET_BEST_ITEMS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const loadingReducer = (state = true, action) => {
+  switch (action.type) {
+    case SET_LOADING:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  bestSelling: bestSellingReducer,
+  bestItems: bestItemsReducer,
+  loading: loadingReducer,
+});
+
+export default rootReducer;

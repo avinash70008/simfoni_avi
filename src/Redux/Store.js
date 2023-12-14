@@ -1,5 +1,8 @@
-import { applyMiddleware, legacy_createStore } from "redux";
+// store.js
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { ProductReducer } from "./reducer";
+import rootReducer from "./reducer"; // Update the path accordingly
 
-export const store = legacy_createStore(ProductReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+export default store;
