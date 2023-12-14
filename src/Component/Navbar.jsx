@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Search from "../svg/search.svg";
 import Notifi from "../svg/notification.svg";
 import Calender from "../svg/calendar.svg";
@@ -10,15 +10,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetPRODUCTApi } from "../Redux/action";
 
 const Navbar = () => {
-
   const dispatch = useDispatch();
-  const {  data } = useSelector((state) => state);
+  const { data } = useSelector((state) => state);
 
+  const [sortByPriceOrder, setSortByPriceOrder] = useState("asc");
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(GetPRODUCTApi());
   }, [dispatch]);
 
+  const handleSortByPrice = () => {
+    const newSortOrder = sortByPriceOrder === "asc" ? "desc" : "asc";
+    setSortByPriceOrder(newSortOrder);
+  
+    const sortedData = [...data].sort((a, b) => {
+      const priceA = a.list_price || 0; 
+      const priceB = b.list_price || 0; 
+  
+      if (newSortOrder === "asc") {
+        return priceA - priceB;
+      } else {
+        return priceB - priceA;
+      }
+    });
+  
+    
+  };
 
   return (
     <>
@@ -188,7 +205,7 @@ const Navbar = () => {
               <div className="relative w-full">
                 <input
                   type="search"
-                  className="block p-2 w-full z-20 text-sm  rounded-md border-s-gray-50 border-s-2 border  focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:border-blue-500 outline-none"
+                  className="block p-2 w-full z-20 text-sm rounded-md border-s-gray-50 border-s-2 border  focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:border-blue-500 outline-none"
                   placeholder="Search"
                   required
                 />
@@ -224,23 +241,23 @@ const Navbar = () => {
             Upload
           </button>
         </div>
-        <div className="flex gap-x-8" >
-      
+        <div className="flex gap-x-8">
           <select
             name=""
             id=""
             className="border border=[#E3F2F1] text-black text-sm rounded-md border-s-gray-100  focus:ring-blue-500 focus:border-blue-500 block  p-2  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 w-[150px] bg-white"
           >
             <option value="">Filter</option>
-            <option value="1">2</option>
-            <option value="1">2</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
           </select>
           <select
             name=""
             id=""
             className="text-black text-sm rounded-md border-s-gray-100  focus:ring-blue-500 focus:border-blue-500 block  p-2 border border=[#E3F2F1] dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 w-[150px]"
+            onChange={handleSortByPrice}
           >
-            <option value="">Sort By</option>
+            <option value="">Sort By Price</option>
             <option value="htl">High To Low</option>
             <option value="lth">Low To High</option>
           </select>

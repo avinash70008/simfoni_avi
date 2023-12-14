@@ -17,6 +17,7 @@ const Loading = () => {
 const Product = () => {
   const dispatch = useDispatch();
   const { loading, data } = useSelector((state) => state);
+  console.log(data)
 
 
   const [quantities, setQuantities] = useState([]);
